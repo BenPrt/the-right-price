@@ -1,16 +1,21 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Header from 'components/Header/Header';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <p>How you doin?</p>
-      <Button variant="contained" color="primary">
-        Good !
-      </Button>
+      <Container fluid>
+        <Row className="justify-content-center">
+          <Col xs={12} sm={12} md={10} lg={6} xl={6}>
+            <Header />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
