@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import SimpleReducer from './SimpleReducer';
+import SplashScreenReducer from './SplashScreenReducer';
 
 export default combineReducers({
-  SimpleReducer,
+  splashScreenIsDisplayed : SplashScreenReducer,
 });

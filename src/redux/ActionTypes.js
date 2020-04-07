@@ -1,5 +1,5 @@
 export const ActionTypes = {
-  simpleAction: 'SIMPLE_ACTION',
+  hideSplashScreen: 'HIDE_SPLASH_SCREEN',
 };
 
 export default ActionTypes;
