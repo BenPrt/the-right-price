@@ -15,6 +15,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       containedPrimary: {
+        textTransform: 'none',
         '&:hover': {
           backgroundColor : '#f9bd2f',
         },

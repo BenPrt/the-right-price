@@ -1,5 +1,4 @@
 import React from 'react';
-import RefreshSharpIcon from '@material-ui/icons/RefreshSharp';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 import './Header.scss';
@@ -9,7 +8,7 @@ class Header extends React.Component {
     return (
       <div className="Header">
         <div id="actions-container">
-          <RefreshSharpIcon id="reset-button" />
+          <i id="reset-button" class="fas fa-redo"></i>
           <SettingsIcon id="settings-button" />
         </div>
 

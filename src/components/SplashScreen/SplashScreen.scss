@@ -8,34 +8,43 @@
   height: 100vh;
 
   #splashscreen-logo {
+    margin-top: 15vh;
     width: 100%;
   }
 
   #app-title {
+    margin-top: 40px;
     text-align: center;
+    font-weight: 300;
+    font-size: 32px;
+
     span {
       font-family: 'Zilla Slab', serif;
       font-weight: 600;
       font-size: 36px;
     }
-
-    font-weight: 300;
-    font-size: 32px;
   }
 
   #app-description {
+    margin-top: 8px;
+    text-align: center;
     color: $dark-grey;
-    font-weight : 500;
-    font-size : 12px;
-    text-align : center;
-    line-height : 18px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
   }
 
-  .currency-select-form{
-      width : 100%;
+  .currency-select-form {
+    width: 100%;
   }
 
   #get-started-button {
-      width : 100%;
+    margin-top: 40px;
+    width: 100%;
+    padding: 21px 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 24px;
   }
 }

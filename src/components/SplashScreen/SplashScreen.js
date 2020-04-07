@@ -26,7 +26,7 @@ class SplashScreen extends React.Component {
             <Col xs={12} md={10} xl={6}>
               <Container>
                 <Row className="justify-content-center">
-                  <Col xs={6} md={4} xl={2}>
+                  <Col xs={6} md={3}>
                     <img
                       alt="Splash Screen Logo"
                       src={SplashScreenLogo}
@@ -35,14 +35,14 @@ class SplashScreen extends React.Component {
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col xs={6} md={4}>
+                  <Col xs={7} md={4}>
                     <h1 id="app-title">
                       <span>The Right</span> Price
                     </h1>
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col xs={6}>
+                  <Col xs={8} md={6}>
                     <p id="app-description">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Leo aenean accumsan, mattis nibh proin auctor.
@@ -50,7 +50,7 @@ class SplashScreen extends React.Component {
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col xs={6}>
+                  <Col xs={10} md={6}>
                     <FormControl
                       variant="outlined"
                       className="currency-select-form"
@@ -68,7 +68,6 @@ class SplashScreen extends React.Component {
                           id: 'currency-select-field',
                         }}
                       >
-                        <option aria-label="None" value={''}></option>
                         <option value={'USD'}>US Dollars</option>
                         <option value={'CAD'}>Canadian Dollars</option>
                         <option value={'EUR'}>Euros</option>
@@ -77,9 +76,13 @@ class SplashScreen extends React.Component {
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col xs={6}>
-                    <Button id="get-started-button" variant="contained" color="primary">
-                      Get Started
+                  <Col xs={10} md={6}>
+                    <Button
+                      id="get-started-button"
+                      variant="contained"
+                      color="primary"
+                    >
+                      Get Started <i class="fas fa-arrow-right"></i>
                     </Button>
                   </Col>
                 </Row>
