@@ -78,7 +78,7 @@ class SplashScreen extends React.Component {
                 </Row>
                 <Row className="justify-content-center">
                   <Col xs={6}>
-                    <Button id="get-started-button" variant="contained">
+                    <Button id="get-started-button" variant="contained" color="primary">
                       Get Started
                     </Button>
                   </Col>
