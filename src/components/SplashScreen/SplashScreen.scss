@@ -1,44 +1,75 @@
 @import 'variables.scss';
 
 .SplashScreen {
-  position: absolute;
-  z-index: 1;
-  background-color: #ffffff;
-  width: 100%;
-  height: 100vh;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  .splash-screen-overlay {
+    position: absolute;
+    z-index: 1;
+    background-color: #000000;
+    opacity: 0.8;
+    width: 100%;
+    height: 100vh;
 
-  @keyframes slide-up {
-    from {
-      top: 0;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    @keyframes fade-out {
+      from {
+        opacity: 0.8;
+      }
+      90% {
+        visibility: initial;
+      }
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
-    70%{
-      opacity : 1;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    }
-    85%{
-      opacity : 1;
-      box-shadow: none;
-    }
-    95%{
-      opacity : 0;
-      box-shadow: none;
-    }
-    to {
-      top: -100vh;
-      box-shadow: none;
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+      animation: fade-out 500ms ease-out;
     }
   }
 
-  &.hidden {
-    top: -100vh;
-    box-shadow: none;
-    animation: slide-up 400ms ease-out;
+  .splash-screen-frame {
+    position: absolute;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100vh;
+
+    @keyframes slide-left {
+      from {
+        left: 0;
+      }
+      to {
+        left: -100%;
+      }
+    }
+
+    &.hidden {
+      left: -100%;
+      animation: slide-left 400ms ease-out;
+    }
+
+    @media screen and (min-width: 992px) {
+      @keyframes slide-up {
+        from {
+          top: 0;
+        }
+        to {
+          top: -100vh;
+        }
+      }
+
+      &.hidden {
+        top: -100vh;
+        left: 0;
+        animation: slide-up 500ms ease-out;
+      }
+    }
   }
 
   #splashscreen-logo {
-    margin-top: 15vh;
+    margin-top: 10vh;
     width: 100%;
   }
 
@@ -65,6 +96,7 @@
   }
 
   .currency-select-form {
+    margin-top: 40px;
     width: 100%;
   }
 
