@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
-import { hideSplashScreen } from 'redux/actions/HideSplashScreenAction';
+import { hideSplashScreen } from 'redux/actions/SplashScreenActions';
 import './SplashScreen.scss';
 
 import SplashScreenLogo from 'img/splashscreen_logo.svg';
@@ -18,9 +19,11 @@ function SplashScreen() {
   const isSplashScreenDisplayed = useSelector(
     (state) => state.splashScreenIsDisplayed,
   );
-  const dispatch = useDispatch();
+  const currenciesList = useSelector(
+    (state) => state.currenciesData.currenciesList,
+  );
 
-  const currency = '';
+  const dispatch = useDispatch();
 
   const handleCurrencySelection = (event) => {
     alert(event.target.value);
@@ -71,13 +74,14 @@ function SplashScreen() {
                     <FormControl
                       variant="outlined"
                       className="currency-select-form"
+                      disabled={!(currenciesList.length > 1)}
                     >
                       <InputLabel htmlFor="currency-select-field">
                         Favorite Currency
                       </InputLabel>
                       <Select
                         native
-                        value={currency}
+                        value="USD"
                         onChange={handleCurrencySelection}
                         label="Favorite currency"
                         inputProps={{
@@ -85,9 +89,9 @@ function SplashScreen() {
                           id: 'currency-select-field',
                         }}
                       >
-                        <option value={'USD'}>US Dollars</option>
-                        <option value={'CAD'}>Canadian Dollars</option>
-                        <option value={'EUR'}>Euros</option>
+                        {currenciesList.map((currency) => (
+                          <option key={currency} value={currency}>{currency}</option>
+                        ))}
                       </Select>
                     </FormControl>
                   </Col>
