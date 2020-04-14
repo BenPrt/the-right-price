@@ -24,6 +24,16 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiIconButton: {
+      root: {
+        '&:focus': {
+          outline : 'none',
+        },
+      },
+      colorSecondary: {
+        color: '#FFFFFF',
+      },
+    },
   },
 });
 

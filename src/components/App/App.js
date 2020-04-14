@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import './App.scss';
 
-import { fetchCurrencies } from 'redux/actions/CurrencyActions';
 import SplashScreen from 'components/SplashScreen/SplashScreen';
+import ErrorSnackbar from 'components/ErrorSnackbar/ErrorSnackbar';
 import Header from 'components/Header/Header';
-import { useDispatch } from 'react-redux';
+import { fetchCurrencies } from 'redux/actions/CurrencyActions';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
           </Col>
         </Row>
       </Container>
+      <ErrorSnackbar />
     </div>
   );
 }

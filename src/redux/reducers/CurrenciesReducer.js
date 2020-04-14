@@ -3,7 +3,6 @@ import ActionTypes from 'redux/ActionTypes';
 const initialState = {
   loading: false,
   currenciesList: [],
-  error: '',
 };
 
 export default (state = initialState, action) => {
@@ -28,7 +27,7 @@ export default (state = initialState, action) => {
       }
       return state;
     case ActionTypes.getCurrenciesRequestError:
-      return { ...state, loading: action.loading, error: action.error };
+      return { ...state, loading: action.loading};
     default:
       return state;
   }

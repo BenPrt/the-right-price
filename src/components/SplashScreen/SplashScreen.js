@@ -1,6 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -21,7 +20,7 @@ function SplashScreen() {
   );
   const currenciesList = useSelector(
     (state) => state.currenciesData.currenciesList,
-  );  
+  );
 
   const dispatch = useDispatch();
 
@@ -89,7 +88,9 @@ function SplashScreen() {
                         }}
                       >
                         {currenciesList.map((currency) => (
-                          <option key={currency.name} value={currency}>{currency.name}</option>
+                          <option key={currency.name} value={currency}>
+                            {currency.name}
+                          </option>
                         ))}
                       </Select>
                     </FormControl>
@@ -102,9 +103,8 @@ function SplashScreen() {
                       variant="contained"
                       color="primary"
                       onClick={() => dispatch(hideSplashScreen())}
-                      endIcon={<i className="fas fa-arrow-right"></i>}
                     >
-                      Get Started
+                      Get Started <i className="fas fa-arrow-right"></i>
                     </Button>
                   </Col>
                 </Row>

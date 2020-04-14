@@ -42,9 +42,7 @@ export const fetchCurrencies = () => {
             JSON.stringify(body.response),
           );
         }
-        if (
-          JSON.parse(localStorage.getItem('lastReceivedCurrencies'))['USD'] === '1'
-        ) {
+        if (JSON.parse(localStorage.getItem('lastReceivedCurrencies'))) {
           dispatch(
             getCurrenciesRequestSuccess(
               JSON.parse(localStorage.getItem('lastReceivedCurrencies')),
