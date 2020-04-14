@@ -1,28 +1,28 @@
 import ActionTypes from 'redux/ActionTypes';
 
-export const getCurrencies = () => {
+export const getCurrenciesRequest = () => {
   return {
-    type: ActionTypes.getCurrencies,
+    type: ActionTypes.getCurrenciesRequest,
     loading: true,
   };
 };
-export const getCurrenciesSuccess = (currencies) => {
+export const getCurrenciesRequestSuccess = (currencies) => {
   return {
-    type: ActionTypes.getCurrenciesSuccess,
+    type: ActionTypes.getCurrenciesRequestSuccess,
     currencies,
     loading: false,
   };
 };
-export const getCurrenciesError = (error) => {
+export const getCurrenciesRequestError = (error) => {
   return {
-    type: ActionTypes.getCurrenciesError,
+    type: ActionTypes.getCurrenciesRequestError,
     loading: false,
     error,
   };
 };
 export const fetchCurrencies = () => {
   return (dispatch) => {
-    dispatch(getCurrencies());
+    dispatch(getCurrenciesRequest());
 
     return fetch(
       // eslint-disable-next-line max-len
@@ -36,11 +36,34 @@ export const fetchCurrencies = () => {
         return response.json();
       })
       .then((body) => {
-        dispatch(getCurrenciesSuccess(body.response));
+        if (body.status) {
+          localStorage.setItem(
+            'lastReceivedCurrencies',
+            JSON.stringify(body.response),
+          );
+        }
+        if (
+          JSON.parse(localStorage.getItem('lastReceivedCurrencies'))['USD'] === '1'
+        ) {
+          dispatch(
+            getCurrenciesRequestSuccess(
+              JSON.parse(localStorage.getItem('lastReceivedCurrencies')),
+            ),
+          );
+        } else {
+          console.error(
+            'Currency requests limit reached, please retry in few minutes',
+          );
+          dispatch(getCurrenciesRequestError('Request limit reached'));
+        }
       })
       .catch((error) => {
         console.error(error);
-        dispatch(getCurrenciesError(error));
+        dispatch(
+          getCurrenciesRequestError(
+            'Server unreachable, check your internet connection or retry in few minutes',
+          ),
+        );
       });
   };
 };

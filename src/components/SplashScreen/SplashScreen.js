@@ -21,7 +21,7 @@ function SplashScreen() {
   );
   const currenciesList = useSelector(
     (state) => state.currenciesData.currenciesList,
-  );
+  );  
 
   const dispatch = useDispatch();
 
@@ -81,7 +81,6 @@ function SplashScreen() {
                       </InputLabel>
                       <Select
                         native
-                        value="USD"
                         onChange={handleCurrencySelection}
                         label="Favorite currency"
                         inputProps={{
@@ -90,7 +89,7 @@ function SplashScreen() {
                         }}
                       >
                         {currenciesList.map((currency) => (
-                          <option key={currency} value={currency}>{currency}</option>
+                          <option key={currency.name} value={currency}>{currency.name}</option>
                         ))}
                       </Select>
                     </FormControl>

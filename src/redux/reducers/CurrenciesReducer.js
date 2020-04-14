@@ -8,16 +8,26 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.getCurrencies:
+    case ActionTypes.getCurrenciesRequest:
       return { ...state, loading: action.loading };
-    case ActionTypes.getCurrenciesSuccess:
+    case ActionTypes.getCurrenciesRequestSuccess:
       if (action.currencies) {
-        let currenciesList = Object.keys(action.currencies);
-        currenciesList.sort();
+        const currenciesList = Object.entries(
+          action.currencies,
+        ).map(([currency, rate]) => ({ name: currency, rate: rate }));
+        currenciesList.sort((a, b) => {
+          if (a.name > b.name) {
+            return 1;
+          }
+          if (b.name > a.name) {
+            return -1;
+          }
+          return 0;
+        });
         state.currenciesList = currenciesList;
       }
       return state;
-    case ActionTypes.getCurrenciesError:
+    case ActionTypes.getCurrenciesRequestError:
       return { ...state, loading: action.loading, error: action.error };
     default:
       return state;
