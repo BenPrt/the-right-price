@@ -13,13 +13,14 @@ import './ErrorSnackbar.scss';
 import { readError } from 'redux/actions/ErrorActions';
 
 function ErrorSnackbar() {
-  const errorMessage = useSelector((state) => state.error);
+  const displayedError = useSelector((state) => state.error.new);
+  const errorMessage = useSelector((state) => state.error.errorMessage);
 
   const dispatch = useDispatch();
 
   return (
     <div className={`ErrorSnackbar ${
-      errorMessage.length > 0 ? '' : 'hidden'
+      displayedError ? 'displayed' : ''
     }`}>
       <Container fluid>
         <Row className="justify-content-center">

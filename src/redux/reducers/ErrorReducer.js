@@ -1,11 +1,16 @@
 import ActionTypes from 'redux/ActionTypes';
 
-export default (state = '', action) => {
+const initialState = {
+  new: false,
+  errorMessage: [],
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.getCurrenciesRequestError:
-      return action.error;
+      return { ...state, new: true, errorMessage: action.errorMessage };
     case ActionTypes.readError:
-      return '';
+      return { ...state, new: action.displayValue };
     default:
       return state;
   }

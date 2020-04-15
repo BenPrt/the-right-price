@@ -17,7 +17,7 @@ export const getCurrenciesRequestError = (error) => {
   return {
     type: ActionTypes.getCurrenciesRequestError,
     loading: false,
-    error,
+    errorMessage: error,
   };
 };
 export const fetchCurrencies = () => {

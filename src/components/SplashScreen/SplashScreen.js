@@ -87,6 +87,7 @@ function SplashScreen() {
                           id: 'currency-select-field',
                         }}
                       >
+                        <option aria-label="None" value="" />
                         {currenciesList.map((currency) => (
                           <option key={currency.name} value={currency}>
                             {currency.name}
