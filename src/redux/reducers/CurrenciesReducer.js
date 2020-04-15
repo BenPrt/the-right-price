@@ -3,7 +3,7 @@ import ActionTypes from 'redux/ActionTypes';
 const initialState = {
   loading: false,
   currenciesList: [],
-  favouriteCurrency: {},
+  favoriteCurrency: {},
 };
 
 export default (state = initialState, action) => {
@@ -29,8 +29,8 @@ export default (state = initialState, action) => {
       return state;
     case ActionTypes.getCurrenciesRequestError:
       return { ...state, loading: action.loading };
-    case ActionTypes.setFavouriteCurrency:
-      return { ...state, favouriteCurrency: action.currency };
+    case ActionTypes.setFavoriteCurrency:
+      return { ...state, favoriteCurrency: action.currency };
     default:
       return state;
   }

@@ -7,8 +7,11 @@ export const ActionTypes = {
   getCurrenciesRequest: 'GET_CURRENCIES_REQUEST',
   getCurrenciesRequestSuccess: 'GET_CURRENCIES_REQUEST_SUCCESS',
   getCurrenciesRequestError: 'GET_CURRENCIES_REQUEST_ERROR',
-  // Favourite Currency Actions
-  setFavouriteCurrency: 'SET_FAVOURITE_CURRENCY',
+  // Favorite Currency Actions
+  setFavoriteCurrency: 'SET_Favorite_CURRENCY',
+  // Amount Inputs Actions
+  updateAmountValue: 'UPDATE_AMOUNT_VALUE',
+  updateAmountCurrency: 'UPDATE_AMOUNT_CURRENCY',
 };
 
 export default ActionTypes;

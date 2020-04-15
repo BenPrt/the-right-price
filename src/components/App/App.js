@@ -9,15 +9,16 @@ import './App.scss';
 import SplashScreen from 'components/SplashScreen/SplashScreen';
 import ErrorSnackbar from 'components/ErrorSnackbar/ErrorSnackbar';
 import Header from 'components/Header/Header';
+import Amount from 'components/Amount/Amount';
 import { fetchCurrencies } from 'redux/actions/CurrenciesListActions';
-import { checkFavouriteCurrency } from 'redux/actions/FavouriteCurrencyActions';
+import { checkFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCurrencies());
-    dispatch(checkFavouriteCurrency());
+    dispatch(checkFavoriteCurrency());
   }, [dispatch]);
 
   return (
@@ -27,6 +28,7 @@ function App() {
         <Row className="justify-content-center">
           <Col xs={12} md={10} lg={6}>
             <Header />
+            <Amount />
           </Col>
         </Row>
       </Container>
