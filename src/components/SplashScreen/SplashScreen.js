@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
+import { setFavouriteCurrency } from 'redux/actions/FavouriteCurrencyActions';
 import { hideSplashScreen } from 'redux/actions/SplashScreenActions';
 import './SplashScreen.scss';
 
@@ -21,11 +22,14 @@ function SplashScreen() {
   const currenciesList = useSelector(
     (state) => state.currenciesData.currenciesList,
   );
+  const favouriteCurrency = useSelector(
+    (state) => state.currenciesData.favouriteCurrency,
+  );
 
   const dispatch = useDispatch();
 
   const handleCurrencySelection = (event) => {
-    alert(event.target.value);
+    dispatch(setFavouriteCurrency(currenciesList[event.target.value]));
   };
 
   return (
@@ -82,14 +86,20 @@ function SplashScreen() {
                         native
                         onChange={handleCurrencySelection}
                         label="Favorite currency"
+                        value={currenciesList.findIndex(
+                          (cur) =>
+                            cur &&
+                            favouriteCurrency &&
+                            cur.name === favouriteCurrency.name,
+                        )}
                         inputProps={{
                           name: 'currency',
                           id: 'currency-select-field',
                         }}
                       >
                         <option aria-label="None" value="" />
-                        {currenciesList.map((currency) => (
-                          <option key={currency.name} value={currency}>
+                        {currenciesList.map((currency, index) => (
+                          <option key={index} value={index}>
                             {currency.name}
                           </option>
                         ))}

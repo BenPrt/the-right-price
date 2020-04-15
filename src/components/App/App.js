@@ -9,13 +9,15 @@ import './App.scss';
 import SplashScreen from 'components/SplashScreen/SplashScreen';
 import ErrorSnackbar from 'components/ErrorSnackbar/ErrorSnackbar';
 import Header from 'components/Header/Header';
-import { fetchCurrencies } from 'redux/actions/CurrencyActions';
+import { fetchCurrencies } from 'redux/actions/CurrenciesListActions';
+import { checkFavouriteCurrency } from 'redux/actions/FavouriteCurrencyActions';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCurrencies());
+    dispatch(checkFavouriteCurrency());
   }, [dispatch]);
 
   return (

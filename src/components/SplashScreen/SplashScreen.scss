@@ -8,24 +8,12 @@
     opacity: 0.8;
     width: 100%;
     height: 100vh;
-
-    @keyframes fade-out {
-      from {
-        opacity: 0.8;
-      }
-      90% {
-        visibility: initial;
-      }
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
+    visibility: initial;
+    transition: opacity 500ms ease-out, visibility 500ms ease-out;
 
     &.hidden {
       opacity: 0;
       visibility: hidden;
-      animation: fade-out 500ms ease-out;
     }
   }
 
@@ -35,35 +23,20 @@
     background-color: #ffffff;
     width: 100%;
     height: 100vh;
-
-    @keyframes slide-left {
-      from {
-        left: 0;
-      }
-      to {
-        left: -100%;
-      }
-    }
+    left: 0;
+    top: 0;
+    visibility: initial;
+    transition: left 400ms ease-out, top 400ms ease-out, visibility 400ms ease-out 350ms;
 
     &.hidden {
+      visibility: hidden;
       left: -100%;
-      animation: slide-left 400ms ease-out;
     }
 
     @media screen and (min-width: 992px) {
-      @keyframes slide-up {
-        from {
-          top: 0;
-        }
-        to {
-          top: -100vh;
-        }
-      }
-
       &.hidden {
         top: -100vh;
         left: 0;
-        animation: slide-up 500ms ease-out;
       }
     }
   }

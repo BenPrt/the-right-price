@@ -7,6 +7,8 @@ export const ActionTypes = {
   getCurrenciesRequest: 'GET_CURRENCIES_REQUEST',
   getCurrenciesRequestSuccess: 'GET_CURRENCIES_REQUEST_SUCCESS',
   getCurrenciesRequestError: 'GET_CURRENCIES_REQUEST_ERROR',
+  // Favourite Currency Actions
+  setFavouriteCurrency: 'SET_FAVOURITE_CURRENCY',
 };
 
 export default ActionTypes;
