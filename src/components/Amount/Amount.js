@@ -41,7 +41,7 @@ function Amount() {
     <div className="Amount">
       <form noValidate autoComplete="off">
         <TextField
-          id="amount-input"
+          className="amount-input"
           label="Standard"
           onChange={handleAmountUpdate}
           type="number"

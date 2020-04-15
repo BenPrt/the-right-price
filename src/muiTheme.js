@@ -17,21 +17,28 @@ const theme = createMuiTheme({
       containedPrimary: {
         textTransform: 'none',
         '&:hover': {
-          backgroundColor : '#f9bd2f',
+          backgroundColor: '#f9bd2f',
         },
         '&:focus': {
-          outline : 'none',
+          outline: 'none',
         },
       },
     },
     MuiIconButton: {
       root: {
         '&:focus': {
-          outline : 'none',
+          outline: 'none',
         },
       },
       colorSecondary: {
         color: '#FFFFFF',
+      },
+    },
+    MuiInput: {
+      underline: {
+        '&&&&:hover:before': {
+          borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
+        },
       },
     },
   },
