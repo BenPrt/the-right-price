@@ -13,11 +13,8 @@ export default (state = initialState, action) => {
       return { ...state, isEnabled: action.toggleValue };
     case ActionTypes.selectTaxValue:
       return { ...state, selectedTaxValue: action.taxValue };
-    case ActionTypes.addNewTaxPercentage:
-      const newTaxList = Object.assign([], state.taxesOptions);
-      newTaxList.push(action.percentage);
-      newTaxList.sort((a, b) => a - b);
-      return { ...state, taxesOptions: newTaxList };
+    case ActionTypes.setTaxesList:
+      return { ...state, taxesOptions: action.taxesList };
     default:
       return state;
   }

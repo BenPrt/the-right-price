@@ -12,9 +12,32 @@ export const selectTaxValue = (taxValue) => {
     taxValue,
   };
 };
-export const addNewTaxPercentage = (percentage) => {
+
+export const setTaxesList = (taxesList) => {
   return {
-    type: ActionTypes.addNewTaxPercentage,
-    percentage,
+    type: ActionTypes.setTaxesList,
+    taxesList,
+  };
+};
+export const fetchTaxesList = () => {
+  return (dispatch) => {
+    const storedList = JSON.parse(localStorage.getItem('taxesList'));
+    if (storedList) {
+      dispatch(setTaxesList(storedList));
+    }
+  };
+};
+export const insertNewTax = (percentage) => {
+  return (dispatch, getState) => {
+    let storedList = JSON.parse(localStorage.getItem('taxesList'));
+    if (!storedList) {
+      storedList = Object.assign([], getState().taxData.taxesOptions);
+    }
+    if (storedList.indexOf(percentage) === -1) {
+      storedList.push(percentage);
+      storedList.sort((a, b) => a - b);
+    }
+    localStorage.setItem('taxesList', JSON.stringify(storedList));
+    dispatch(setTaxesList(storedList));
   };
 };

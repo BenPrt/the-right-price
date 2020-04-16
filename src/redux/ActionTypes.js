@@ -15,7 +15,7 @@ export const ActionTypes = {
   // Tax Section Actions
   toggleTaxSection: 'TOGGLE_TAX_SECTION',
   selectTaxValue: 'SELECT_TAX_VALUE',
-  addNewTaxPercentage: 'ADD_NEW_TAX_PERCENTAGE',
+  setTaxesList: 'SET_TAXES_LIST',
   // Tip Section Actions
   toggleTipSection: 'TOGGLE_TIP_SECTION',
 };

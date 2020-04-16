@@ -1,4 +1,5 @@
 import ActionTypes from 'redux/ActionTypes';
+import { mockedCurrenciesCall } from 'currenciesData';
 
 export const getCurrenciesRequest = () => {
   return {
@@ -24,17 +25,22 @@ export const fetchCurrencies = () => {
   return (dispatch) => {
     dispatch(getCurrenciesRequest());
 
-    return fetch(
-      // eslint-disable-next-line max-len
-      'https://fcsapi.com/api-v2/forex/base_latest?symbol=USD&type=forex&access_key=HqorL3PDKx2pEWmrD9dusaQmPGzp0gi4h8fyE5qal9zKuHp',
-      { method: 'GET' },
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error - 404 Not Found');
-        }
-        return response.json();
-      })
+    // return fetch(
+    //   // eslint-disable-next-line max-len
+    //   'https://fcsapi.com/api-v2/forex/base_latest?symbol=USD&type=forex&access_key=HqorL3PDKx2pEWmrD9dusaQmPGzp0gi4h8fyE5qal9zKuHp',
+    //   { method: 'GET' },
+    // )
+    const mockedCall = new Promise((resolve, reject) => {
+      resolve(mockedCurrenciesCall);
+    });
+
+    return mockedCall
+      // .then((response) => {
+      //   if (!response.ok) {
+      //     throw new Error('Error - 404 Not Found');
+      //   }
+      //   return response.json();
+      // })
       .then((body) => {
         if (body.status) {
           localStorage.setItem(
@@ -42,12 +48,11 @@ export const fetchCurrencies = () => {
             JSON.stringify(body.response),
           );
         }
-        if (JSON.parse(localStorage.getItem('lastReceivedCurrencies'))) {
-          dispatch(
-            getCurrenciesRequestSuccess(
-              JSON.parse(localStorage.getItem('lastReceivedCurrencies')),
-            ),
-          );
+        const parsedCurrencies = JSON.parse(
+          localStorage.getItem('lastReceivedCurrencies'),
+        );
+        if (parsedCurrencies) {
+          dispatch(getCurrenciesRequestSuccess(parsedCurrencies));
         } else {
           console.error(
             'Currency requests limit reached, please retry in few minutes',

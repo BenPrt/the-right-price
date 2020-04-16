@@ -6,6 +6,7 @@ export const updateAmountValue = (value) => {
     value,
   };
 };
+
 export const setAmountCurrency = (currency) => {
   return {
     type: ActionTypes.updateAmountCurrency,

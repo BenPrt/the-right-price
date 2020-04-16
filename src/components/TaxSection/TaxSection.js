@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Switch from '@material-ui/core/Switch';
 
 import './TaxSection.scss';
 
-import { toggleTaxSection } from 'redux/actions/TaxesActions';
+import { fetchTaxesList, toggleTaxSection } from 'redux/actions/TaxesActions';
 import PercentageChip from 'components/PercentageChip/PercentageChip';
 
 const taxSectionsMessage = {
@@ -23,6 +23,10 @@ function TaxSection() {
   const selectedCurrency = useSelector((state) => state.amountData.currency);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTaxesList());
+  }, [dispatch]);
 
   const handleTaxSectionEnabling = () => {
     dispatch(toggleTaxSection(!isTaxSectionEnabled));
