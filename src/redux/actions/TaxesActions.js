@@ -6,3 +6,9 @@ export const toggleTaxSection = (toggleValue) => {
     toggleValue,
   };
 };
+export const selectTaxValue = (taxValue) => {
+  return {
+    type: ActionTypes.selectTaxValue,
+    taxValue,
+  };
+};

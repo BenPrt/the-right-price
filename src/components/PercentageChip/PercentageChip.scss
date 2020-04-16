@@ -1,0 +1,33 @@
+@import 'variables.scss';
+
+.PercentageChip {
+  height: 40px;
+  width: 40px;
+  background-color: $light-grey;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &.selected {
+    background-color: $light-yellow;
+    color: $yellow;
+    &:hover {
+      background-color: $light-yellow;
+    }
+  }
+
+  .percentage-chip-value {
+    font-weight: 600;
+    font-size: 16px;
+  }
+}

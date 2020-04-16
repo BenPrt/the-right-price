@@ -14,6 +14,7 @@ export const ActionTypes = {
   updateAmountCurrency: 'UPDATE_AMOUNT_CURRENCY',
   // Tax Section Actions
   toggleTaxSection: 'TOGGLE_TAX_SECTION',
+  selectTaxValue: 'SELECT_TAX_VALUE',
   // Tip Section Actions
   toggleTipSection: 'TOGGLE_TIP_SECTION',
 };

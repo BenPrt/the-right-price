@@ -12,6 +12,11 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
 
     #tax-section-title {
       font-size: 24px;
@@ -26,7 +31,43 @@
     transition: max-height 400ms ease-out;
 
     &.displayed {
-      max-height: 50px;
+      max-height: 900px;
+      padding-bottom: 32px;
+    }
+
+    #tax-chips-wrapper {
+      display: flex;
+      margin-bottom: 16px;
+
+      .PercentageChip {
+        margin-right: 8px;
+      }
+    }
+
+    #calculated-tax-wrapper {
+      #calculated-tax-label {
+        color: $dark-grey;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      #calculated-tax-result {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+
+        #result {
+          font-size: 26px;
+          line-height: 32px;
+          margin-right : 6px;
+        }
+      }
+    }
+
+    .tax-info-message {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
     }
   }
 }
