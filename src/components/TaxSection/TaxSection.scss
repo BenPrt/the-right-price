@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+.TaxSection {
+  margin: 0px 46px;
+  padding: 16px 0px;
+  border-bottom: 1px solid $light-grey;
+  display: flex;
+  align-items: center;
+
+  #tax-section-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width : 100%;
+    align-items: center;
+
+    #tax-section-title {
+      font-size: 24px;
+      font-family: 'Zilla Slab', serif;
+      font-weight: 600;
+      line-height: 30px;
+    }
+  }
+}

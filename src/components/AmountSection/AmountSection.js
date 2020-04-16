@@ -6,14 +6,14 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 
-import './Amount.scss';
+import './AmountSection.scss';
 import {
   updateAmountValue,
   updateAmountCurrency,
   fetchAmountCurrency,
 } from 'redux/actions/AmountInputActions';
 
-function Amount() {
+function AmountSection() {
   const currenciesList = useSelector(
     (state) => state.currenciesData.currenciesList,
   );
@@ -38,7 +38,7 @@ function Amount() {
   };
 
   return (
-    <div className="Amount">
+    <div className="AmountSection">
       <form noValidate autoComplete="off">
         <TextField
           className="amount-input"
@@ -84,4 +84,4 @@ function Amount() {
   );
 }
 
-export default Amount;
+export default AmountSection;
