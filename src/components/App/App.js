@@ -11,6 +11,7 @@ import ErrorSnackbar from 'components/ErrorSnackbar/ErrorSnackbar';
 import Header from 'components/Header/Header';
 import AmountSection from 'components/AmountSection/AmountSection';
 import TaxSection from 'components/TaxSection/TaxSection';
+import TipSection from 'components/TipSection/TipSection';
 import { fetchCurrencies } from 'redux/actions/CurrenciesListActions';
 import { checkFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 
@@ -31,6 +32,7 @@ function App() {
             <Header />
             <AmountSection />
             <TaxSection />
+            <TipSection />
           </Col>
         </Row>
       </Container>

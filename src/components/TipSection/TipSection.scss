@@ -1,26 +1,26 @@
 @import 'variables.scss';
 
-.TaxSection {
+.TipSection {
   margin: 0px 46px;
   padding: 16px 0px;
   border-bottom: 1px solid $light-grey;
   display: flex;
   flex-direction: column;
 
-  #tax-section-title-wrapper {
+  #tip-section-title-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width : 100%;
     align-items: center;
 
-    #tax-section-title {
+    #tip-section-title {
       font-size: 24px;
       font-family: 'Zilla Slab', serif;
       font-weight: 600;
       line-height: 30px;
     }
   }
-  .tax-section-content {
+  .tip-section-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 400ms ease-out;

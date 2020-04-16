@@ -8,7 +8,7 @@ import { toggleTaxSection } from 'redux/actions/TaxesActions';
 
 function TaxSection() {
   const isTaxSectionEnabled = useSelector(
-    (state) => state.taxData.isTaxSectionEnabled,
+    (state) => state.taxData.isEnabled,
   );
 
   const dispatch = useDispatch();
@@ -27,6 +27,9 @@ function TaxSection() {
           name="taxSectionSwitch"
           color="primary"
         />
+      </div>
+      <div className={`tax-section-content ${isTaxSectionEnabled ? 'displayed' : ''}`}>
+        Tax Section Content
       </div>
     </div>
   );

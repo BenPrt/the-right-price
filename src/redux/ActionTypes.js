@@ -12,8 +12,10 @@ export const ActionTypes = {
   // Amount Inputs Actions
   updateAmountValue: 'UPDATE_AMOUNT_VALUE',
   updateAmountCurrency: 'UPDATE_AMOUNT_CURRENCY',
-  // Taxes Section Actions
+  // Tax Section Actions
   toggleTaxSection: 'TOGGLE_TAX_SECTION',
+  // Tip Section Actions
+  toggleTipSection: 'TOGGLE_TIP_SECTION',
 };
 
 export default ActionTypes;
