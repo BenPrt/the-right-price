@@ -49,8 +49,9 @@ function TaxSection() {
         }`}
       >
         <div id="tax-chips-wrapper">
+          <PercentageChip mode="create" type="tax" />
           {taxesList.map((tax, index) => (
-            <PercentageChip key={`tax-${index}`} type="tax" value={tax} />
+            <PercentageChip key={`tax-${index}`} mode="display" type="tax" value={tax} />
           ))}
         </div>
         {enteredAmount > 0 ? (

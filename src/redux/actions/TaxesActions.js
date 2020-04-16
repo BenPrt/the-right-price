@@ -12,3 +12,9 @@ export const selectTaxValue = (taxValue) => {
     taxValue,
   };
 };
+export const addNewTaxPercentage = (percentage) => {
+  return {
+    type: ActionTypes.addNewTaxPercentage,
+    percentage,
+  };
+};

@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .ErrorSnackbar {
   position: absolute;
   z-index: 5;
@@ -20,7 +22,7 @@
     padding: 6px 16px;
 
     border-radius: 4px;
-    background-color: #f44336;
+    background-color: $red;
     color: #fff;
     font-weight: 500;
     font-size: 0.875rem;

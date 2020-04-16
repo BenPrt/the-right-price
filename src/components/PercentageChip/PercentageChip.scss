@@ -26,6 +26,27 @@
     }
   }
 
+  &.edition {
+    background-color: $light-yellow;
+  }
+
+  &.create {
+    border: 1px solid $light-grey;
+    background-color: $white;
+  }
+
+  .percentage-chip-input {
+    font-weight: 600;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    width: 80%;
+    text-align: center;
+    &:focus {
+      outline: none;
+    }
+  }
+
   .percentage-chip-value {
     font-weight: 600;
     font-size: 16px;
