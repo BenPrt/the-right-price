@@ -15,6 +15,7 @@ function PercentageChip(props) {
   });
 
   const [isInEditionMode, toggleEditionMode] = useState(false);
+  const [taxInputValue, setTaxInputValue] = useState('');
 
   const dispatch = useDispatch();
 
@@ -31,27 +32,27 @@ function PercentageChip(props) {
   };
 
   const handleChipAddingValue = (event) => {
-    if (event.target.value > 2) {
-      event.target.value = parseInt(
-        String(event.target.value).substring(0, 2),
-        10,
-      );
+    let newValue = event.target.value;
+    if (newValue.length > 2) {
+      newValue = newValue.substring(0, 2);
     }
-    if (event.target.value < 0) {
-      event.target.value = Math.abs(event.target.value);
+    if (parseInt(newValue, 10) < 0) {
+      newValue = (Math.abs(parseInt(newValue, 10)));
     }
+    setTaxInputValue(newValue);
   };
 
-  const handleChipAdding = (event) => {
+  const handleChipAdding = () => {
     toggleEditionMode(false);
 
-    if (event.target.value.length > 0) {
+    if (taxInputValue.length > 0) {
       if (props.type === 'tax') {
-        dispatch(insertNewTax(parseInt(event.target.value, 10)));
+        dispatch(insertNewTax(parseInt(taxInputValue, 10)));
       } else {
         // dispatch(addNewTipPercentage(event.target.value));
       }
     }
+    setTaxInputValue('');
   };
 
   return (
@@ -66,13 +67,16 @@ function PercentageChip(props) {
     >
       {props.mode === 'create' ? (
         isInEditionMode ? (
-          <input
-            className="percentage-chip-input"
-            type="number"
-            onChange={handleChipAddingValue.bind(this)}
-            onBlur={handleChipAdding.bind(this)}
-            autoFocus
-          ></input>
+          <form onSubmit={handleChipAdding.bind(this)}>
+            <input
+              className="percentage-chip-input"
+              type="number"
+              value={taxInputValue}
+              onChange={handleChipAddingValue.bind(this)}
+              onBlur={handleChipAdding.bind(this)}
+              autoFocus
+            ></input>
+          </form>
         ) : (
           <p className="percentage-chip-value">+</p>
         )
