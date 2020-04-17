@@ -72,7 +72,6 @@ function TaxSection() {
         ) : (
           <p className="tax-info-message">{taxSectionsMessage.noInput}</p>
         )}
-        <p></p>
       </div>
     </div>
   );
