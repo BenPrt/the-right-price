@@ -42,7 +42,7 @@ function AmountSection() {
       <form noValidate autoComplete="off">
         <TextField
           className="amount-input"
-          label="Standard"
+          label="Amount"
           onChange={handleAmountUpdate}
           type="number"
           validator=""

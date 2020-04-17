@@ -12,9 +12,14 @@ export default (state = initialState, action) => {
       return { ...state, loading: action.loading };
     case ActionTypes.getCurrenciesRequestSuccess:
       if (action.currencies) {
-        const currenciesList = Object.entries(
-          action.currencies,
-        ).map(([currency, rate]) => ({ name: currency, rate: rate }));
+        const currenciesList = Object.entries(action.currencies).map(
+          ([currency, rate]) => {
+            if (currency.length <= 3) {
+              return { name: currency, rate: rate };
+            }
+            return false;
+          },
+        );
         currenciesList.sort((a, b) => {
           if (a.name > b.name) {
             return 1;
