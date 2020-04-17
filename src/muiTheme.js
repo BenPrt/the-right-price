@@ -26,12 +26,31 @@ const theme = createMuiTheme({
     },
     MuiIconButton: {
       root: {
+        color: '#000000',
+        '& svg': {
+          fontSize: 32,
+        },
+        margin: -16,
         '&:focus': {
           outline: 'none',
+        },
+        '&:hover': {
+          backgroundColor: 'transparent',
         },
       },
       colorSecondary: {
         color: '#FFFFFF',
+      },
+      sizeSmall: {
+        '& svg': {
+          fontSize: 24,
+        },
+      },
+    },
+    MuiSwitch: {
+      thumb: {
+        margin: 16,
+        
       },
     },
     MuiInput: {
