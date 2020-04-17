@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './PercentageChip.scss';
-import { selectTaxValue, insertNewTax } from 'redux/actions/TaxesActions';
+import { selectTaxValue, insertNewTax } from 'redux/actions/TaxActions';
+import { selectTipValue, insertNewTip } from 'redux/actions/TipActions';
 
 function PercentageChip(props) {
   const isChipSelected = useSelector((state) => {
@@ -26,7 +27,7 @@ function PercentageChip(props) {
       if (props.type === 'tax') {
         dispatch(selectTaxValue(value));
       } else {
-        // dispatch(selectTipValue(value));
+        dispatch(selectTipValue(value));
       }
     }
   };
@@ -37,7 +38,7 @@ function PercentageChip(props) {
       newValue = newValue.substring(0, 2);
     }
     if (parseInt(newValue, 10) < 0) {
-      newValue = (Math.abs(parseInt(newValue, 10)));
+      newValue = Math.abs(parseInt(newValue, 10));
     }
     setTaxInputValue(newValue);
   };
@@ -49,7 +50,7 @@ function PercentageChip(props) {
       if (props.type === 'tax') {
         dispatch(insertNewTax(parseInt(taxInputValue, 10)));
       } else {
-        // dispatch(addNewTipPercentage(event.target.value));
+        dispatch(insertNewTip(parseInt(taxInputValue, 10)));
       }
     }
     setTaxInputValue('');

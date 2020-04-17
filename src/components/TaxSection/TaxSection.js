@@ -4,7 +4,7 @@ import Switch from '@material-ui/core/Switch';
 
 import './TaxSection.scss';
 
-import { fetchTaxesList, toggleTaxSection } from 'redux/actions/TaxesActions';
+import { fetchTaxesList, toggleTaxSection } from 'redux/actions/TaxActions';
 import PercentageChip from 'components/PercentageChip/PercentageChip';
 
 const taxSectionsMessage = {
