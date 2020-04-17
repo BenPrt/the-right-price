@@ -1,6 +1,6 @@
 @import 'variables.scss';
 
-.Settings {
+.SettingsPanel {
   .settings-overlay {
     position: absolute;
     z-index: 1;
@@ -23,10 +23,11 @@
     z-index: 2;
     height: 100vh;
     right: -80%;
-    transition : right 500ms ease-in;
-    width : 80%;
+    transition: right 500ms ease-in;
+    width: 80%;
     background-color: white;
-    padding : 32px 45px;
+    padding: 32px 45px;
+    overflow-y: auto;
 
     @media screen and (min-width: 768px) {
       width: 50%;
@@ -41,10 +42,25 @@
       right: 0;
     }
 
-    #settings-frame-title{
+    #settings-frame-title {
+      margin-top: 32px;
       font-family: 'Zilla Slab', serif;
       font-weight: 600;
       font-size: 32px;
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: $light-grey;
+    border-radius: 3px;
+    margin-right : 3px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $dark-grey;
+    border-radius: 3px;
+    margin-right : 3px;
   }
 }

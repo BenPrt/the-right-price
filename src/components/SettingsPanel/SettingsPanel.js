@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import './Settings.scss';
+import './SettingsPanel.scss';
 import { toggleSettings } from 'redux/actions/SettingsActions';
+import SettingsContent from 'components/SettingsContent/SettingsContent';
+import SettingsInformations from 'components/SettingsInformations/SettingsInformations';
 
-function Settings() {
+function SettingsPanel() {
   const isSettingsPanelDisplayed = useSelector(
     (state) => state.settingsFrameIsDisplayed,
   );
@@ -19,7 +21,7 @@ function Settings() {
   };
 
   return (
-    <div className="Settings">
+    <div className="SettingsPanel">
       <div
         className={`settings-overlay ${
           isSettingsPanelDisplayed ? 'displayed' : ''
@@ -40,9 +42,11 @@ function Settings() {
           <ArrowBackIcon />
         </IconButton>
         <h2 id="settings-frame-title">Settings</h2>
+        <SettingsContent />
+        <SettingsInformations />
       </div>
     </div>
   );
 }
 
-export default Settings;
+export default SettingsPanel;

@@ -8,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 import { setFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 import { hideSplashScreen } from 'redux/actions/SplashScreenActions';
@@ -115,7 +116,7 @@ function SplashScreen() {
                       color="primary"
                       onClick={() => dispatch(hideSplashScreen())}
                     >
-                      Get Started <i className="fas fa-arrow-right"></i>
+                      Get Started <ArrowForwardIcon />
                     </Button>
                   </Col>
                 </Row>

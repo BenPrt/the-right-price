@@ -8,7 +8,7 @@ import './App.scss';
 
 import SplashScreen from 'components/SplashScreen/SplashScreen';
 import ErrorSnackbar from 'components/ErrorSnackbar/ErrorSnackbar';
-import Settings from 'components/Settings/Settings';
+import SettingsPanel from 'components/SettingsPanel/SettingsPanel';
 import Header from 'components/Header/Header';
 import AmountSection from 'components/AmountSection/AmountSection';
 import TaxSection from 'components/TaxSection/TaxSection';
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <SplashScreen />
-      <Settings />
+      <SettingsPanel />
       <Container fluid>
         <Row className="justify-content-center">
           <Col xs={12} md={10} lg={6}>

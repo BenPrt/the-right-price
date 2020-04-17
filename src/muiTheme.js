@@ -50,7 +50,6 @@ const theme = createMuiTheme({
     MuiSwitch: {
       thumb: {
         margin: 16,
-        
       },
     },
     MuiInput: {
@@ -58,6 +57,21 @@ const theme = createMuiTheme({
         '&&&&:hover:before': {
           borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
         },
+      },
+    },
+    MuiChip: {
+      root: {
+        fontWeight: 500,
+        fontSize: 12,
+        height: '28px',
+      },
+      icon: {
+        color: '#000000',
+        fontSize: 20,
+        marginTop : -1,
+      },
+      label: {
+        paddingLeft: 8,
       },
     },
   },
