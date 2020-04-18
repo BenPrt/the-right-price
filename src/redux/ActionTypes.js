@@ -18,10 +18,12 @@ export const ActionTypes = {
   toggleTaxSection: 'TOGGLE_TAX_SECTION',
   selectTaxValue: 'SELECT_TAX_VALUE',
   setTaxesList: 'SET_TAXES_LIST',
+  deleteTaxValue: 'DELETE_TAX_VALUE',
   // Tip Section Actions
   toggleTipSection: 'TOGGLE_TIP_SECTION',
   selectTipValue: 'SELECT_TIP_VALUE',
   setTipsList: 'SET_TIPS_LIST',
+  deleteTipValue: 'DELETE_TIP_VALUE',
 };
 
 export default ActionTypes;

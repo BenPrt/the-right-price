@@ -4,13 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Chip from '@material-ui/core/Chip';
+import NativeSelect from '@material-ui/core/NativeSelect';
 import FormControl from '@material-ui/core/FormControl';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
 import './SettingsContent.scss';
 
+import { removeTax } from 'redux/actions/TaxActions';
+import { removeTip } from 'redux/actions/TipActions';
 import { setFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
-import { NativeSelect, Chip } from '@material-ui/core';
 
 function SettingsContent() {
   const currenciesList = useSelector(
@@ -29,13 +32,11 @@ function SettingsContent() {
   };
 
   const handleTaxDeletion = (tax) => {
-    // dispatch();
-    alert(`delete tax ${tax}`);
+    dispatch(removeTax(tax));
   };
 
   const handleTipDeletion = (tip) => {
-    // dispatch();
-    alert(`delete tip ${tip}`);
+    dispatch(removeTip(tip));
   };
 
   return (

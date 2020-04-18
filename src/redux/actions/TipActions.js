@@ -39,5 +39,18 @@ export const insertNewTip = (percentage) => {
     }
     localStorage.setItem('tipsList', JSON.stringify(storedList));
     dispatch(setTipsList(storedList));
+    dispatch(selectTipValue(percentage));
+  };
+};
+
+export const removeTip = (percentage) => {
+  return (dispatch, getState) => {
+    if (getState().tipData.selectedTipValue === percentage) {
+      dispatch(selectTipValue());
+    }
+    const actualTipValues = getState().tipData.tipsOptions;
+    const newTipValues = actualTipValues.filter((tip) => tip !== percentage);
+    localStorage.setItem('tipsList', JSON.stringify(newTipValues));
+    dispatch(setTipsList(newTipValues));
   };
 };

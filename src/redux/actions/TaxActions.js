@@ -39,5 +39,18 @@ export const insertNewTax = (percentage) => {
     }
     localStorage.setItem('taxesList', JSON.stringify(storedList));
     dispatch(setTaxesList(storedList));
+    dispatch(selectTaxValue(percentage));
+  };
+};
+
+export const removeTax = (percentage) => {
+  return (dispatch, getState) => {
+    if (getState().taxData.selectedTaxValue === percentage) {
+      dispatch(selectTaxValue());
+    }
+    const actualTaxValues = getState().taxData.taxesOptions;
+    const newTaxValues = actualTaxValues.filter((tax) => tax !== percentage);
+    localStorage.setItem('taxesList', JSON.stringify(newTaxValues));
+    dispatch(setTaxesList(newTaxValues));
   };
 };

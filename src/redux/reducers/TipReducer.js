@@ -12,7 +12,10 @@ export default (state = initialState, action) => {
     case ActionTypes.toggleTipSection:
       return { ...state, isEnabled: action.toggleValue };
     case ActionTypes.selectTipValue:
-      return { ...state, selectedTipValue: action.tipValue };
+      if (action.tipValue) {
+        return { ...state, selectedTipValue: action.tipValue };
+      }
+      return { ...state, selectedTipValue: undefined };
     case ActionTypes.setTipsList:
       return { ...state, tipsOptions: action.tipsList };
     default:

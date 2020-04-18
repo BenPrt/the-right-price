@@ -12,7 +12,10 @@ export default (state = initialState, action) => {
     case ActionTypes.toggleTaxSection:
       return { ...state, isEnabled: action.toggleValue };
     case ActionTypes.selectTaxValue:
-      return { ...state, selectedTaxValue: action.taxValue };
+      if (action.taxValue) {
+        return { ...state, selectedTaxValue: action.taxValue };
+      }
+      return { ...state, selectedTaxValue: undefined };
     case ActionTypes.setTaxesList:
       return { ...state, taxesOptions: action.taxesList };
     default:
