@@ -27,7 +27,7 @@ function AmountSection() {
   }, [dispatch]);
 
   const handleAmountUpdate = (event) => {
-    const decimalRegexp = RegExp('^(?=.*[0-9])?\\d*(?:[\\.\\,]\\d{0,2})?$');
+    const decimalRegexp = RegExp('^\\d*(?:[\\.\\,]\\d{0,2})?$');
 
     if (decimalRegexp.test(event.target.value)) {
       setAmountInputValue(event.target.value);

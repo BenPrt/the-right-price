@@ -2,12 +2,12 @@
 
 .PercentageChip {
   height: 40px;
-  width: 40px;
+  min-width: 40px;
   background-color: $light-grey;
   border-radius: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   cursor: pointer;
 
   &:focus {
@@ -35,20 +35,29 @@
     background-color: $white;
   }
 
-  .percentage-chip-input {
-    font-weight: 600;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    width: 80%;
-    text-align: center;
-    &:focus {
-      outline: none;
+  .percentage-chip-adding-form {
+    padding: 0 6px;
+    display : flex;
+    .percentage-chip-input {
+      font-weight: 600;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
+      width: 42px;
+      text-align: right;
+      &:focus {
+        outline: none;
+      }
+    }
+    .percentage-chip-percent-input-label {
+      font-weight: 600;
+      font-size: 16px;
     }
   }
 
   .percentage-chip-value {
     font-weight: 600;
     font-size: 16px;
+    padding: 0 5px;
   }
 }
