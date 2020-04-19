@@ -1,24 +1,37 @@
 import ActionTypes from 'redux/ActionTypes';
+import { updateCalculatedValues } from './CalculationActions';
 
+// Action toggling the Tax Section display
 export const toggleTaxSection = (toggleValue) => {
   return {
     type: ActionTypes.toggleTaxSection,
     toggleValue,
   };
 };
-export const selectTaxValue = (taxValue) => {
+
+// Action and thunk handling the tax percentage selection
+export const setSelectedTaxValue = (taxValue) => {
   return {
     type: ActionTypes.selectTaxValue,
     taxValue,
   };
 };
+export const selectTaxValue = (taxValue) => {
+  return (dispatch, getState) => {
+    dispatch(setSelectedTaxValue(taxValue));
+    dispatch(updateCalculatedValues());
+  };
+};
 
+// Action and thunks handling the taxes list update, storage and fetch
+// Action setting updated taxes list
 export const setTaxesList = (taxesList) => {
   return {
     type: ActionTypes.setTaxesList,
     taxesList,
   };
 };
+// Thunk fetching the taxes list from local storage, called when component init
 export const fetchTaxesList = () => {
   return (dispatch) => {
     const storedList = JSON.parse(localStorage.getItem('taxesList'));
@@ -27,6 +40,7 @@ export const fetchTaxesList = () => {
     }
   };
 };
+// Thunk called when a new tax is added, updating the list then storing it
 export const insertNewTax = (percentage) => {
   return (dispatch, getState) => {
     let storedList = JSON.parse(localStorage.getItem('taxesList'));
@@ -42,7 +56,7 @@ export const insertNewTax = (percentage) => {
     dispatch(selectTaxValue(percentage));
   };
 };
-
+// Thunk handling the tax deletion from the taxes list
 export const removeTax = (percentage) => {
   return (dispatch, getState) => {
     if (getState().taxData.selectedTaxValue === percentage) {
@@ -52,5 +66,13 @@ export const removeTax = (percentage) => {
     const newTaxValues = actualTaxValues.filter((tax) => tax !== percentage);
     localStorage.setItem('taxesList', JSON.stringify(newTaxValues));
     dispatch(setTaxesList(newTaxValues));
+  };
+};
+
+// Action setting the calculated tax amount (calculations are made in CalculationActions file)
+export const setCalculatedTaxAmount = (calculatedValue) => {
+  return {
+    type: ActionTypes.setCalculatedTaxAmount,
+    calculatedValue,
   };
 };

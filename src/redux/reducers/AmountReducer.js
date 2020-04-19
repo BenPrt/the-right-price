@@ -7,9 +7,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.updateAmountValue:
+    case ActionTypes.setAmountValue:
       return { ...state, value: action.value };
-    case ActionTypes.updateAmountCurrency:
+    case ActionTypes.setAmountCurrency:
       return { ...state, currency: action.currency };
     default:
       return state;

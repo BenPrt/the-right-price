@@ -12,11 +12,12 @@ export const ActionTypes = {
   // Favorite Currency Actions
   setFavoriteCurrency: 'SET_Favorite_CURRENCY',
   // Amount Inputs Actions
-  updateAmountValue: 'UPDATE_AMOUNT_VALUE',
-  updateAmountCurrency: 'UPDATE_AMOUNT_CURRENCY',
+  setAmountValue: 'SET_AMOUNT_VALUE',
+  setAmountCurrency: 'SET_AMOUNT_CURRENCY',
   // Tax Section Actions
   toggleTaxSection: 'TOGGLE_TAX_SECTION',
   selectTaxValue: 'SELECT_TAX_VALUE',
+  setCalculatedTaxAmount: 'SET_CALCULATED_TAX_AMOUNT',
   setTaxesList: 'SET_TAXES_LIST',
   deleteTaxValue: 'DELETE_TAX_VALUE',
   // Tip Section Actions
