@@ -54,5 +54,11 @@ export const updateCalculatedValues = () => {
     dispatch(setCalculatedTotalAmount(calculatedTotalValue));
 
     // Total amount conversion
+    const convertedtoUSDTotalValue = calculatedTotalValue / inputCurrencyRate;
+
+    const convertedtoTargetTotalValue = parseFloat(
+      (convertedtoUSDTotalValue * favoriteCurrencyRate).toFixed(2),
+    );
+    dispatch(setConvertedTotalAmount(convertedtoTargetTotalValue));
   };
 };
