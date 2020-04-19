@@ -16,7 +16,14 @@ function SettingsInformations() {
             <p className="informations-label">Design</p>
           </Col>
           <Col xs={5}>
-            <p className="informations-value">Katheleen Lemaire</p>
+            <a
+              href="https://www.behance.net/KatheleenLmr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="informations-value"
+            >
+              Katheleen Lemaire
+            </a>
           </Col>
         </Row>
         <Row className="informations-section">
@@ -24,7 +31,14 @@ function SettingsInformations() {
             <p className="informations-label">Software Engineering</p>
           </Col>
           <Col xs={5}>
-            <p className="informations-value">Benjamin Parant</p>
+            <a
+              href="https://github.com/BenPrt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="informations-value"
+            >
+              Benjamin Parant
+            </a>
           </Col>
         </Row>
       </Container>

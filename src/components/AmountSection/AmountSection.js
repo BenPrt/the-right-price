@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import TextField from '@material-ui/core/TextField';
@@ -11,6 +11,7 @@ import {
   updateAmountValue,
   updateAmountCurrency,
   fetchAmountCurrency,
+  setAmountValue,
 } from 'redux/actions/AmountInputActions';
 
 function AmountSection() {
@@ -18,7 +19,7 @@ function AmountSection() {
     (state) => state.currenciesData.currenciesList,
   );
   const amountCurrency = useSelector((state) => state.amountData.currency);
-  const [amountInputValue, setAmountInputValue] = useState('');
+  const amountValue = useSelector((state) => state.amountData.value);
 
   const dispatch = useDispatch();
 
@@ -30,12 +31,12 @@ function AmountSection() {
     const decimalRegexp = RegExp('^\\d*(?:[\\.\\,]\\d{0,2})?$');
 
     if (decimalRegexp.test(event.target.value)) {
-      setAmountInputValue(event.target.value);
+      dispatch(setAmountValue(event.target.value));
       let sendValue = 0;
       if (event.target.value) {
         sendValue = event.target.value;
       }
-      dispatch(updateAmountValue(parseFloat(sendValue)));
+      dispatch(updateAmountValue(sendValue));
     }
   };
   const handleCurrencyUpdate = (event) => {
@@ -50,7 +51,7 @@ function AmountSection() {
           label="Amount"
           onChange={handleAmountUpdate}
           validator=""
-          value={amountInputValue}
+          value={amountValue}
           inputProps={{
             min: '0',
           }}

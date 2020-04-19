@@ -6,12 +6,13 @@ import SettingsIcon from '@material-ui/icons/Settings';
 
 import './Header.scss';
 import { toggleSettings } from 'redux/actions/SettingsActions';
+import { resetApp } from 'redux/actions/ResetActions';
 
 function Header() {
   const dispatch = useDispatch();
 
   const handleReset = () => {
-    alert('reset');
+    dispatch(resetApp());
   };
 
   const handleToggleSettings = () => {

@@ -3,7 +3,7 @@ import ActionTypes from 'redux/ActionTypes';
 const initialState = {
   isEnabled: false,
   tipsOptions: [10, 15, 20],
-  selectedTipValue: undefined,
+  selectedTipValue: 0,
   calculatedTipAmount: 0,
 };
 
@@ -12,7 +12,8 @@ export default (state = initialState, action) => {
     case ActionTypes.toggleTipSection:
       return { ...state, isEnabled: action.toggleValue };
     case ActionTypes.selectTipValue:
-      return { ...state, selectedTipValue: action.tipValue };
+      const tipToSet = action.tipValue ? action.tipValue : 0;
+      return { ...state, selectedTipValue: tipToSet };
     case ActionTypes.setCalculatedTipAmount:
       return { ...state, calculatedTipAmount: action.calculatedValue };
     case ActionTypes.setTipsList:

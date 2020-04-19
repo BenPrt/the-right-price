@@ -40,7 +40,8 @@ function PercentageChip(props) {
     }
   };
 
-  const handleChipAdding = () => {
+  const handleChipAdding = (event) => {
+    event.preventDefault();
     toggleEditionMode(false);
 
     if (taxInputValue.length > 0) {

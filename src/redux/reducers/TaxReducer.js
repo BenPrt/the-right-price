@@ -12,10 +12,8 @@ export default (state = initialState, action) => {
     case ActionTypes.toggleTaxSection:
       return { ...state, isEnabled: action.toggleValue };
     case ActionTypes.selectTaxValue:
-      if (action.taxValue) {
-        return { ...state, selectedTaxValue: action.taxValue };
-      }
-      return { ...state, selectedTaxValue: undefined };
+      const taxToSet = action.taxValue ? action.taxValue : 0;
+      return { ...state, selectedTaxValue: taxToSet };
     case ActionTypes.setCalculatedTaxAmount:
       return { ...state, calculatedTaxAmount: action.calculatedValue };
     case ActionTypes.setTaxesList:

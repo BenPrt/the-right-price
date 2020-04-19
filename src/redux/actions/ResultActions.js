@@ -24,7 +24,7 @@ export const updateCalculatedValues = () => {
     // Initiating needed initial data
     const favoriteCurrencyRate = getState().currenciesData.favoriteCurrency
       .rate;
-    const inputValue = getState().amountData.value;
+    const inputValue = parseFloat(getState().amountData.value);
     const inputCurrencyRate = getState().amountData.currency.rate;
     const isTaxEnabled = getState().taxData.isEnabled;
     const taxPercentage = getState().taxData.selectedTaxValue;
@@ -47,10 +47,14 @@ export const updateCalculatedValues = () => {
     dispatch(setCalculatedTipAmount(calculatedTipValue));
 
     // Total amount calculation
-    const calculatedTotalValue =
-      inputValue +
-      (isTaxEnabled ? calculatedTaxValue : 0) +
-      (isTipEnabled ? calculatedTipValue : 0);
+    const calculatedTotalValue = parseFloat(
+      (
+        inputValue +
+        (isTaxEnabled ? calculatedTaxValue : 0) +
+        (isTipEnabled ? calculatedTipValue : 0)
+      ).toFixed(2),
+    );
+
     dispatch(setCalculatedTotalAmount(calculatedTotalValue));
 
     // Total amount conversion
