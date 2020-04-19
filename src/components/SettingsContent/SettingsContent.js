@@ -81,6 +81,7 @@ function SettingsContent() {
             <p className="settings-label">Tax percentages</p>
           </Col>
           <Col xs={5}>
+            {taxesList.length > 0 ? '' : '-'}
             {taxesList.map((tax, index) => (
               <div key={`tax-${index}`} className="settings-percentage-wrapper">
                 <p className="settings-percentage-value">{tax}%</p>
@@ -99,6 +100,8 @@ function SettingsContent() {
             <p className="settings-label">Tip percentages</p>
           </Col>
           <Col xs={5}>
+            {tipsList.length > 0 ? '' : '-'}
+
             {tipsList.map((tip, index) => (
               <div key={`tip-${index}`} className="settings-percentage-wrapper">
                 <p className="settings-percentage-value">{tip}%</p>

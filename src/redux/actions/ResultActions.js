@@ -31,38 +31,40 @@ export const updateCalculatedValues = () => {
     const isTipEnabled = getState().tipData.isEnabled;
     const tipPercentage = getState().tipData.selectedTipValue;
 
-    // Tax amount calculation
-    const calculatedTaxValue = parseFloat(
-      (inputValue * (taxPercentage / 100)).toFixed(2),
-    );
-    dispatch(setCalculatedTaxAmount(calculatedTaxValue));
+    if (inputValue > 0) {
+      // Tax amount calculation
+      const calculatedTaxValue = parseFloat(
+        (inputValue * (taxPercentage / 100)).toFixed(2),
+      );
+      dispatch(setCalculatedTaxAmount(calculatedTaxValue));
 
-    // Tip amount calculation
-    const calculatedTipValue = parseFloat(
-      (
-        (inputValue + (isTaxEnabled ? calculatedTaxValue : 0)) *
-        (tipPercentage / 100)
-      ).toFixed(2),
-    );
-    dispatch(setCalculatedTipAmount(calculatedTipValue));
+      // Tip amount calculation
+      const calculatedTipValue = parseFloat(
+        (
+          (inputValue + (isTaxEnabled ? calculatedTaxValue : 0)) *
+          (tipPercentage / 100)
+        ).toFixed(2),
+      );
+      dispatch(setCalculatedTipAmount(calculatedTipValue));
 
-    // Total amount calculation
-    const calculatedTotalValue = parseFloat(
-      (
-        inputValue +
-        (isTaxEnabled ? calculatedTaxValue : 0) +
-        (isTipEnabled ? calculatedTipValue : 0)
-      ).toFixed(2),
-    );
+      // Total amount calculation
+      const calculatedTotalValue = parseFloat(
+        (
+          inputValue +
+          (isTaxEnabled ? calculatedTaxValue : 0) +
+          (isTipEnabled ? calculatedTipValue : 0)
+        ).toFixed(2),
+      );
 
-    dispatch(setCalculatedTotalAmount(calculatedTotalValue));
+      dispatch(setCalculatedTotalAmount(calculatedTotalValue));
 
-    // Total amount conversion
-    const convertedtoUSDTotalValue = calculatedTotalValue / inputCurrencyRate;
+      // Total amount conversion
+      const convertedtoUSDTotalValue = calculatedTotalValue / inputCurrencyRate;
 
-    const convertedtoTargetTotalValue = parseFloat(
-      (convertedtoUSDTotalValue * favoriteCurrencyRate).toFixed(2),
-    );
-    dispatch(setConvertedTotalAmount(convertedtoTargetTotalValue));
+      const convertedtoTargetTotalValue = parseFloat(
+        (convertedtoUSDTotalValue * favoriteCurrencyRate).toFixed(2),
+      );
+      dispatch(setConvertedTotalAmount(convertedtoTargetTotalValue));
+    }
   };
 };
