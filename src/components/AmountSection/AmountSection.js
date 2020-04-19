@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import TextField from '@material-ui/core/TextField';
@@ -17,9 +17,8 @@ function AmountSection() {
   const currenciesList = useSelector(
     (state) => state.currenciesData.currenciesList,
   );
-  const amountCurrency = useSelector(
-    (state) => state.amountData.currency,
-  );
+  const amountCurrency = useSelector((state) => state.amountData.currency);
+  const [amountInputValue, setAmountInputValue] = useState('');
 
   const dispatch = useDispatch();
 
@@ -28,10 +27,12 @@ function AmountSection() {
   }, [dispatch]);
 
   const handleAmountUpdate = (event) => {
-    if (event.target.value < 0) {
-      event.target.value = Math.abs(event.target.value);
+    const decimalRegexp = RegExp('^(?=.*[0-9])?\\d*(?:[\\.\\,]\\d{0,2})?$');
+
+    if (decimalRegexp.test(event.target.value)) {
+      setAmountInputValue(event.target.value);
+      dispatch(updateAmountValue(parseFloat(event.target.value)));
     }
-    dispatch(updateAmountValue(event.target.value));
   };
   const handleCurrencyUpdate = (event) => {
     dispatch(updateAmountCurrency(currenciesList[event.target.value]));
@@ -44,9 +45,11 @@ function AmountSection() {
           className="amount-input"
           label="Amount"
           onChange={handleAmountUpdate}
-          type="number"
           validator=""
-          inputProps={{ min: '0' }}
+          value={amountInputValue}
+          inputProps={{
+            min: '0',
+          }}
         />
         <FormControl
           variant="outlined"
@@ -66,9 +69,7 @@ function AmountSection() {
             }}
             value={currenciesList.findIndex(
               (cur) =>
-                cur &&
-                amountCurrency &&
-                cur.name === amountCurrency.name,
+                cur && amountCurrency && cur.name === amountCurrency.name,
             )}
           >
             <option aria-label="None" value="" />

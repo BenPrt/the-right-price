@@ -17,7 +17,7 @@ export const setSelectedTaxValue = (taxValue) => {
   };
 };
 export const selectTaxValue = (taxValue) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(setSelectedTaxValue(taxValue));
     dispatch(updateCalculatedValues());
   };

@@ -23,6 +23,7 @@ export const ActionTypes = {
   // Tip Section Actions
   toggleTipSection: 'TOGGLE_TIP_SECTION',
   selectTipValue: 'SELECT_TIP_VALUE',
+  setCalculatedTipAmount: 'SET_CALCULATED_TIP_AMOUNT',
   setTipsList: 'SET_TIPS_LIST',
   deleteTipValue: 'DELETE_TIP_VALUE',
 };
