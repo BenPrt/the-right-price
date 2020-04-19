@@ -13,6 +13,7 @@ import Header from 'components/Header/Header';
 import AmountSection from 'components/AmountSection/AmountSection';
 import TaxSection from 'components/TaxSection/TaxSection';
 import TipSection from 'components/TipSection/TipSection';
+import ResultSection from 'components/ResultSection/ResultSection';
 import { fetchCurrencies } from 'redux/actions/CurrenciesListActions';
 import { checkFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 
@@ -35,6 +36,7 @@ function App() {
             <AmountSection />
             <TaxSection />
             <TipSection />
+            <ResultSection />
           </Col>
         </Row>
       </Container>

@@ -1,11 +1,17 @@
 import ActionTypes from 'redux/ActionTypes';
-import { updateCalculatedValues } from './CalculationActions';
+import { updateCalculatedValues } from './ResultActions';
 
 // Action toggling the Tip Section display
-export const toggleTipSection = (toggleValue) => {
+export const setTipSectionToggleValue = (toggleValue) => {
   return {
     type: ActionTypes.toggleTipSection,
     toggleValue,
+  };
+};
+export const toggleTipSection = (toggleValue) => {
+  return (dispatch) => {
+    dispatch(setTipSectionToggleValue(toggleValue));
+    dispatch(updateCalculatedValues());
   };
 };
 

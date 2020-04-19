@@ -2,12 +2,23 @@ import ActionTypes from 'redux/ActionTypes';
 import { setCalculatedTaxAmount } from './TaxActions';
 import { setCalculatedTipAmount } from './TipActions';
 
-export const toggleTaxSection = () => {
+// Action setting the calculated total amount
+export const setCalculatedTotalAmount = (amount) => {
   return {
-    type: ActionTypes.toggleTaxSection,
+    type: ActionTypes.setCalculatedTotalAmount,
+    amount,
   };
 };
 
+// Action setting the converted total amount
+export const setConvertedTotalAmount = (amount) => {
+  return {
+    type: ActionTypes.setConvertedTotalAmount,
+    amount,
+  };
+};
+
+// Thunk making all the calculations and dispatching the value updates
 export const updateCalculatedValues = () => {
   return (dispatch, getState) => {
     // Initiating needed initial data
@@ -40,5 +51,8 @@ export const updateCalculatedValues = () => {
       inputValue +
       (isTaxEnabled ? calculatedTaxValue : 0) +
       (isTipEnabled ? calculatedTipValue : 0);
+    dispatch(setCalculatedTotalAmount(calculatedTotalValue));
+
+    // Total amount conversion
   };
 };

@@ -28,7 +28,7 @@
   .tip-section-content {
     max-height: 0;
     overflow: hidden;
-    transition: mip-height 400ms ease-out 0s, padding-bottom 400ms ease-out 0s;
+    transition: max-height 400ms ease-out 0s, padding-bottom 400ms ease-out 0s;
 
     &.displayed {
       max-height: 150px;

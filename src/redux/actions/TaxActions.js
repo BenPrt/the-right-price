@@ -1,5 +1,5 @@
 import ActionTypes from 'redux/ActionTypes';
-import { updateCalculatedValues } from './CalculationActions';
+import { updateCalculatedValues } from './ResultActions';
 
 // Action toggling the Tax Section display
 export const setTaxSectionToggleValue = (toggleValue) => {

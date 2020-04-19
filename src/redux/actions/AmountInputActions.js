@@ -1,5 +1,5 @@
 import ActionTypes from 'redux/ActionTypes';
-import { updateCalculatedValues } from './CalculationActions';
+import { updateCalculatedValues } from './ResultActions';
 
 // Action and thunk handling input amount value update
 // Action setting the input amount value

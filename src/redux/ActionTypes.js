@@ -26,6 +26,9 @@ export const ActionTypes = {
   setCalculatedTipAmount: 'SET_CALCULATED_TIP_AMOUNT',
   setTipsList: 'SET_TIPS_LIST',
   deleteTipValue: 'DELETE_TIP_VALUE',
+  // Result Section Actions
+  setCalculatedTotalAmount: 'SET_CALCULATED_TOTAL_AMOUNT',
+  setConvertedTotalAmount: 'SET_CONVERTED_TOTAL_AMOUNT',
 };
 
 export default ActionTypes;

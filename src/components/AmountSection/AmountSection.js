@@ -31,7 +31,11 @@ function AmountSection() {
 
     if (decimalRegexp.test(event.target.value)) {
       setAmountInputValue(event.target.value);
-      dispatch(updateAmountValue(parseFloat(event.target.value)));
+      let sendValue = 0;
+      if (event.target.value) {
+        sendValue = event.target.value;
+      }
+      dispatch(updateAmountValue(parseFloat(sendValue)));
     }
   };
   const handleCurrencyUpdate = (event) => {
