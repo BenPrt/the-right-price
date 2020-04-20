@@ -66,10 +66,10 @@ function SplashScreen() {
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col xs={8} md={6}>
+                  <Col xs={10} md={6}>
                     <p id="app-description">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Leo aenean accumsan, mattis nibh proin auctor.
+                      Sometimes, the price you see isn't the
+                      price you'll pay. Not anymore...
                     </p>
                   </Col>
                 </Row>

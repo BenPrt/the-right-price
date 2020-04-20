@@ -1,6 +1,6 @@
  <div align="center">
- <img alt="The Right Price Logo" src="/public/logo.png"/>
-<h1 align="center">Check out the app <a href="https://github.com/BenPrt/the-right-price">here</a> (soon)</h1>
+    <img alt="The Right Price Logo" src="/public/logo.png" style="cursor : default;"/>
+    <h1 align="center">Check out the app <a href="https://github.com/BenPrt/the-right-price">here</a> (soon)</h1>
  </div>
  
 ## Presentation and Features
