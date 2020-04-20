@@ -10,7 +10,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
-import { setFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
+import { updateFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 import { hideSplashScreen } from 'redux/actions/SplashScreenActions';
 import './SplashScreen.scss';
 
@@ -30,7 +30,7 @@ function SplashScreen() {
   const dispatch = useDispatch();
 
   const handleCurrencySelection = (event) => {
-    dispatch(setFavoriteCurrency(currenciesList[event.target.value]));
+    dispatch(updateFavoriteCurrency(currenciesList[event.target.value]));
   };
 
   return (

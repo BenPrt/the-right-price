@@ -7,15 +7,22 @@ const initialState = {
   calculatedTaxAmount: 0,
 };
 
+// Reducer handling the tax section data
 export default (state = initialState, action) => {
   switch (action.type) {
+    // Setting the tax section toggle value
     case ActionTypes.toggleTaxSection:
       return { ...state, isEnabled: action.toggleValue };
+    // Setting the selected tax value
     case ActionTypes.selectTaxValue:
-      const taxToSet = action.taxValue ? action.taxValue : 0;
-      return { ...state, selectedTaxValue: taxToSet };
+      return {
+        ...state,
+        selectedTaxValue: action.taxValue ? action.taxValue : 0,
+      };
+    // Setting the calculated tax amount value
     case ActionTypes.setCalculatedTaxAmount:
       return { ...state, calculatedTaxAmount: action.calculatedValue };
+    // Setting the taxes list options
     case ActionTypes.setTaxesList:
       return { ...state, taxesOptions: action.taxesList };
     default:

@@ -14,7 +14,7 @@ import {
 } from 'redux/actions/TaxActions';
 import { setAmountValue } from 'redux/actions/AmountInputActions';
 
-// Thunk making all the calculations and dispatching the value updates
+// - Thunk reseting all the calculation-based values
 export const resetApp = () => {
   return (dispatch) => {
     dispatch(setConvertedTotalAmount(0));

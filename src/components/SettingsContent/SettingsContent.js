@@ -13,7 +13,7 @@ import './SettingsContent.scss';
 
 import { removeTax } from 'redux/actions/TaxActions';
 import { removeTip } from 'redux/actions/TipActions';
-import { setFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
+import { updateFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 
 function SettingsContent() {
   const currenciesList = useSelector(
@@ -28,7 +28,7 @@ function SettingsContent() {
   const dispatch = useDispatch();
 
   const handleCurrencySelection = (event) => {
-    dispatch(setFavoriteCurrency(currenciesList[event.target.value]));
+    dispatch(updateFavoriteCurrency(currenciesList[event.target.value]));
   };
 
   const handleTaxDeletion = (tax) => {

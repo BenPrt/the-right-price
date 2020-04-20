@@ -1,13 +1,15 @@
 import ActionTypes from 'redux/ActionTypes';
 import { updateCalculatedValues } from './ResultActions';
 
-// Action toggling the Tax Section display
+// - Action and thunk handling the tax section toggling
+// -- Action dispatched when the Tax Section is toggled
 export const setTaxSectionToggleValue = (toggleValue) => {
   return {
     type: ActionTypes.toggleTaxSection,
     toggleValue,
   };
 };
+// -- Thunk handling the Tax section toggling and dispatching updates
 export const toggleTaxSection = (toggleValue) => {
   return (dispatch) => {
     dispatch(setTaxSectionToggleValue(toggleValue));
@@ -15,13 +17,15 @@ export const toggleTaxSection = (toggleValue) => {
   };
 };
 
-// Action and thunk handling the tax percentage selection
+// - Action and thunk handling the tax percentage selection
+// -- Action dispatched to set the selected tax value
 export const setSelectedTaxValue = (taxValue) => {
   return {
     type: ActionTypes.selectTaxValue,
     taxValue,
   };
 };
+// -- Thunk called to handle tax value selection and dispatching updates
 export const selectTaxValue = (taxValue) => {
   return (dispatch) => {
     dispatch(setSelectedTaxValue(taxValue));
@@ -29,15 +33,15 @@ export const selectTaxValue = (taxValue) => {
   };
 };
 
-// Action and thunks handling the taxes list update, storage and fetch
-// Action setting updated taxes list
+// - Action and thunks handling the taxes list update, storage and fetch
+// -- Action setting updated taxes list
 export const setTaxesList = (taxesList) => {
   return {
     type: ActionTypes.setTaxesList,
     taxesList,
   };
 };
-// Thunk fetching the taxes list from local storage, called when component init
+// -- Thunk fetching the taxes list from local storage, called when component init
 export const fetchTaxesList = () => {
   return (dispatch) => {
     const storedList = JSON.parse(localStorage.getItem('taxesList'));
@@ -46,7 +50,7 @@ export const fetchTaxesList = () => {
     }
   };
 };
-// Thunk called when a new tax is added, updating the list then storing it
+// -- Thunk called when a new tax is added, updating the list then storing it
 export const insertNewTax = (percentage) => {
   return (dispatch, getState) => {
     let storedList = JSON.parse(localStorage.getItem('taxesList'));
@@ -62,7 +66,7 @@ export const insertNewTax = (percentage) => {
     dispatch(selectTaxValue(percentage));
   };
 };
-// Thunk handling the tax deletion from the taxes list
+// -- Thunk handling the tax deletion from the taxes list
 export const removeTax = (percentage) => {
   return (dispatch, getState) => {
     if (getState().taxData.selectedTaxValue === percentage) {
@@ -75,7 +79,7 @@ export const removeTax = (percentage) => {
   };
 };
 
-// Action setting the calculated tax amount (calculations are made in CalculationActions file)
+// - Action setting the calculated tax amount (calculations are made in CalculationActions file)
 export const setCalculatedTaxAmount = (calculatedValue) => {
   return {
     type: ActionTypes.setCalculatedTaxAmount,
