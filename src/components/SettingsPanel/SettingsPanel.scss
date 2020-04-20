@@ -49,18 +49,4 @@
       font-size: 32px;
     }
   }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    background: $light-grey;
-    border-radius: 3px;
-    margin-right : 3px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: $dark-grey;
-    border-radius: 3px;
-    margin-right : 3px;
-  }
 }
