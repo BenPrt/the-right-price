@@ -1,0 +1,22 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  padding : 32px 46px;
+
+  #actions-container {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  #calculator-title {
+    margin-top : 24px;
+    font-weight: 300;
+    font-size: 34px;
+    span {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 600;
+      font-size: 32px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import 'variables.scss';
+
+.ErrorSnackbar {
+  position: absolute;
+  z-index: 5;
+  bottom: 24px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 400ms ease-out, visibility 400ms ease-out;
+
+  &.displayed {
+    opacity: 1;
+    visibility: initial;
+  }
+
+  #snackbar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+
+    border-radius: 4px;
+    background-color: $red;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+    #snackbar-icon {
+      font-size: 22px;
+    }
+    #snackbar-message {
+      padding: 8px 16px;
+    }
+  }
+}

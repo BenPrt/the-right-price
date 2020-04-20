@@ -1,0 +1,64 @@
+@import 'variables.scss';
+
+.PercentageChip {
+  height: 40px;
+  min-width: 40px;
+  background-color: $light-grey;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &.selected {
+    background-color: $light-yellow;
+    color: $yellow;
+    &:hover {
+      background-color: $light-yellow;
+    }
+  }
+
+  &.edition {
+    background-color: $light-yellow;
+  }
+
+  &.create {
+    border: 1px solid $light-grey;
+    background-color: $white;
+  }
+
+  .percentage-chip-adding-form {
+    padding: 0 6px;
+    display: flex;
+    .percentage-chip-input {
+      font-weight: 600;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
+      min-width: 14px;
+      max-width: 42px;
+      text-align: left;
+      &:focus {
+        outline: none;
+      }
+    }
+    .percentage-chip-percent-input-label {
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+
+  .percentage-chip-value {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0 5px;
+  }
+}

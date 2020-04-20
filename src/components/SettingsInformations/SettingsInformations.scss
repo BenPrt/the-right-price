@@ -1,0 +1,38 @@
+@import 'variables.scss';
+
+.SettingsInformations {
+  #informations-title {
+    margin-top: 40px;
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .informations-section {
+    padding: 16px 0px;
+    border-bottom: 1px solid $light-grey;
+    .informations-center-label {
+      display: flex;
+      align-items: center;
+    }
+
+    .informations-label {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: $dark-grey;
+    }
+
+    .informations-value {
+      width : 60%;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      text-decoration: none;
+      color : $black;
+      &:hover{
+        opacity : 0.8;
+      }
+    }
+  }
+}

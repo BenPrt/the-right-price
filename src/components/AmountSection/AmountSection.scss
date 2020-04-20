@@ -1,0 +1,18 @@
+@import 'variables.scss';
+
+.AmountSection {
+  margin: 0px 46px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid $light-grey;
+  display: flex;
+  justify-content: flex-start;
+
+  .amount-input {
+    width : 50%;
+    margin-right: 32px;
+  }
+
+  .input-currency-select-form {
+    width : 37%;
+  }
+}
