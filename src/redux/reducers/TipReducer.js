@@ -2,7 +2,7 @@ import ActionTypes from 'redux/ActionTypes';
 
 const initialState = {
   isEnabled: false,
-  tipsOptions: [10, 15, 20],
+  tipsOptions: [15, 17, 20],
   selectedTipValue: 0,
   calculatedTipAmount: 0,
 };

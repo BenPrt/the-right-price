@@ -2,7 +2,7 @@ import ActionTypes from 'redux/ActionTypes';
 
 const initialState = {
   isEnabled: false,
-  taxesOptions: [10, 12, 20],
+  taxesOptions: [5, 8.5, 10],
   selectedTaxValue: 0,
   calculatedTaxAmount: 0,
 };

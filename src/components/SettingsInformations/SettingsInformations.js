@@ -28,7 +28,7 @@ function SettingsInformations() {
         </Row>
         <Row className="informations-section">
           <Col xs={7}>
-            <p className="informations-label">Software Engineering</p>
+            <p className="informations-label">Development</p>
           </Col>
           <Col xs={5}>
             <a
