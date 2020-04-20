@@ -17,7 +17,7 @@ function SettingsInformations() {
           </Col>
           <Col xs={5}>
             <a
-              href="https://www.behance.net/KatheleenLmr"
+              href="https://dribbble.com/katheleen-lmr"
               target="_blank"
               rel="noopener noreferrer"
               className="informations-value"
