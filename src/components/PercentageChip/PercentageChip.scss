@@ -37,14 +37,15 @@
 
   .percentage-chip-adding-form {
     padding: 0 6px;
-    display : flex;
+    display: flex;
     .percentage-chip-input {
       font-weight: 600;
       font-size: 16px;
       background-color: transparent;
       border: none;
-      width: 42px;
-      text-align: right;
+      min-width: 14px;
+      max-width: 42px;
+      text-align: left;
       &:focus {
         outline: none;
       }

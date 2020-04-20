@@ -17,6 +17,10 @@ function PercentageChip(props) {
 
   const [isInEditionMode, toggleEditionMode] = useState(false);
   const [taxInputValue, setTaxInputValue] = useState('');
+  const [inputStyle, setInputStyle] = useState({
+    width: '10px',
+    paddingLeft: '10px',
+  });
 
   const dispatch = useDispatch();
 
@@ -32,11 +36,49 @@ function PercentageChip(props) {
     }
   };
 
-  const handleChipAddingValue = (event) => {
+  const handleUpdateChipAddingValue = (event) => {
     const decimalRegexp = RegExp('^\\d{0,2}(?:[\\.\\,]\\d{0,2})?$');
 
     if (decimalRegexp.test(event.target.value)) {
       setTaxInputValue(event.target.value);
+      switch (event.target.value.length) {
+        case 0:
+          setInputStyle({
+            width: '10px',
+            paddingLeft: '10px',
+          });
+          break;
+        case 1:
+          setInputStyle({
+            width: '14px',
+            paddingLeft: '5px',
+          });
+          break;
+        case 2:
+          setInputStyle({
+            width: '20px',
+            paddingLeft: '0px',
+          });
+          break;
+        case 3:
+          setInputStyle({
+            width: '24px',
+            paddingLeft: '0px',
+          });
+          break;
+        case 4:
+          setInputStyle({
+            width: '32px',
+            paddingLeft: '0px',
+          });
+          break;
+        default:
+          setInputStyle({
+            width: '42px',
+            paddingLeft: '0px',
+          });
+          break;
+      }
     }
   };
 
@@ -52,14 +94,18 @@ function PercentageChip(props) {
       }
     }
     setTaxInputValue('');
+    setInputStyle({
+      width: '10px',
+      paddingLeft: '10px',
+    });
   };
 
   return (
     <div
       className={`PercentageChip
-      ${isChipSelected ? 'selected' : ''}
-      ${isInEditionMode ? 'edition' : ''}
-      ${props.mode === 'create' && !isInEditionMode ? 'create' : ''}`}
+    ${isChipSelected ? 'selected' : ''}
+    ${isInEditionMode ? 'edition' : ''}
+    ${props.mode === 'create' && !isInEditionMode ? 'create' : ''}`}
       role="button"
       tabIndex={0}
       onClick={handleChipClick.bind(this, props.value)}
@@ -73,8 +119,9 @@ function PercentageChip(props) {
             <input
               className="percentage-chip-input"
               value={taxInputValue}
-              onChange={handleChipAddingValue.bind(this)}
+              onChange={handleUpdateChipAddingValue.bind(this)}
               onBlur={handleChipAdding.bind(this)}
+              style={inputStyle}
               autoFocus
             ></input>
             <p className="percentage-chip-percent-input-label">%</p>
