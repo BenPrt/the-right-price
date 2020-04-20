@@ -15,11 +15,16 @@ const taxSectionsMessage = {
 function TaxSection() {
   const isTaxSectionEnabled = useSelector((state) => state.taxData.isEnabled);
   const taxesList = useSelector((state) => state.taxData.taxesOptions);
+  const isTaxOptionAddable = useSelector(
+    (state) => state.taxData.taxesOptions.length < 5,
+  );
   const selectedTaxValue = useSelector(
     (state) => state.taxData.selectedTaxValue,
   );
   const enteredAmount = useSelector((state) => state.amountData.value);
-  const calculatedTaxAmount = useSelector((state) => state.taxData.calculatedTaxAmount);
+  const calculatedTaxAmount = useSelector(
+    (state) => state.taxData.calculatedTaxAmount,
+  );
   const selectedCurrency = useSelector((state) => state.amountData.currency);
 
   const dispatch = useDispatch();
@@ -53,9 +58,18 @@ function TaxSection() {
         }`}
       >
         <div id="tax-chips-wrapper">
-          <PercentageChip mode="create" type="tax" />
+          {isTaxOptionAddable ? (
+            <PercentageChip mode="create" type="tax" />
+          ) : (
+            ''
+          )}
           {taxesList.map((tax, index) => (
-            <PercentageChip key={`tax-${index}`} mode="display" type="tax" value={tax} />
+            <PercentageChip
+              key={`tax-${index}`}
+              mode="display"
+              type="tax"
+              value={tax}
+            />
           ))}
         </div>
         {enteredAmount > 0 ? (
@@ -63,11 +77,14 @@ function TaxSection() {
             <div id="calculated-tax-wrapper">
               <p id="calculated-tax-label">Calculated tax amount</p>
               <p id="calculated-tax-result">
-                <span id="result">{calculatedTaxAmount}</span>{selectedCurrency.name}
+                <span id="result">{calculatedTaxAmount}</span>
+                {selectedCurrency.name}
               </p>
             </div>
           ) : (
-            <p className="tax-info-message">{taxSectionsMessage.noTaxSelected}</p>
+            <p className="tax-info-message">
+              {taxSectionsMessage.noTaxSelected}
+            </p>
           )
         ) : (
           <p className="tax-info-message">{taxSectionsMessage.noInput}</p>

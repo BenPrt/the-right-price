@@ -15,11 +15,16 @@ const tipSectionsMessage = {
 function TipSection() {
   const isTipSectionEnabled = useSelector((state) => state.tipData.isEnabled);
   const tipsList = useSelector((state) => state.tipData.tipsOptions);
+  const isTipOptionAddable = useSelector(
+    (state) => state.tipData.tipsOptions.length < 5,
+  );
   const selectedTipValue = useSelector(
     (state) => state.tipData.selectedTipValue,
   );
   const enteredAmount = useSelector((state) => state.amountData.value);
-  const calculatedTipAmount = useSelector((state) => state.tipData.calculatedTipAmount);
+  const calculatedTipAmount = useSelector(
+    (state) => state.tipData.calculatedTipAmount,
+  );
   const selectedCurrency = useSelector((state) => state.amountData.currency);
 
   const dispatch = useDispatch();
@@ -53,9 +58,18 @@ function TipSection() {
         }`}
       >
         <div id="tip-chips-wrapper">
-          <PercentageChip mode="create" type="tip" />
+          {isTipOptionAddable ? (
+            <PercentageChip mode="create" type="tip" />
+          ) : (
+            ''
+          )}
           {tipsList.map((tip, index) => (
-            <PercentageChip key={`tip-${index}`} mode="display" type="tip" value={tip} />
+            <PercentageChip
+              key={`tip-${index}`}
+              mode="display"
+              type="tip"
+              value={tip}
+            />
           ))}
         </div>
         {enteredAmount > 0 ? (
@@ -63,11 +77,14 @@ function TipSection() {
             <div id="calculated-tip-wrapper">
               <p id="calculated-tip-label">Calculated tip amount</p>
               <p id="calculated-tip-result">
-                <span id="result">{calculatedTipAmount}</span>{selectedCurrency.name}
+                <span id="result">{calculatedTipAmount}</span>
+                {selectedCurrency.name}
               </p>
             </div>
           ) : (
-            <p className="tip-info-message">{tipSectionsMessage.noTipSelected}</p>
+            <p className="tip-info-message">
+              {tipSectionsMessage.noTipSelected}
+            </p>
           )
         ) : (
           <p className="tip-info-message">{tipSectionsMessage.noInput}</p>
