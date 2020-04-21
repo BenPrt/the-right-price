@@ -1,9 +1,6 @@
 @import 'variables.scss';
 
 .SplashScreen {
-  height: 100vh;
-  overflow-y: auto;
-
   ::-webkit-scrollbar {
     display: none;
   }
@@ -30,6 +27,7 @@
     background-color: #ffffff;
     width: 100%;
     height: 100vh;
+    overflow-y: auto;
     left: 0;
     top: 0;
     visibility: initial;
