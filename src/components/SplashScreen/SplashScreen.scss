@@ -1,6 +1,10 @@
 @import 'variables.scss';
 
 .SplashScreen {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   .splash-screen-overlay {
     position: absolute;
     z-index: 1;
@@ -23,10 +27,12 @@
     background-color: #ffffff;
     width: 100%;
     height: 100vh;
+    overflow-y: auto;
     left: 0;
     top: 0;
     visibility: initial;
-    transition: left 400ms ease-out, top 400ms ease-out, visibility 400ms ease-out 350ms;
+    transition: left 400ms ease-out, top 400ms ease-out,
+      visibility 400ms ease-out 350ms;
 
     &.hidden {
       visibility: hidden;
@@ -74,7 +80,7 @@
   }
 
   #get-started-button {
-    margin-top: 40px;
+    margin: 40px 0px;
     width: 100%;
     padding: 21px 24px;
     display: flex;
