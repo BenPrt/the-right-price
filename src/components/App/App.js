@@ -20,7 +20,20 @@ import { checkFavoriteCurrency } from 'redux/actions/FavoriteCurrencyActions';
 function App() {
   const dispatch = useDispatch();
 
+  const calculateViewPortUnit = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
   useEffect(() => {
+    const initAppViewPortHeight = () => {
+      calculateViewPortUnit();
+      window.addEventListener('resize', () => {
+        calculateViewPortUnit();
+      });
+    };
+  
+    initAppViewPortHeight();
     dispatch(fetchCurrencies());
     dispatch(checkFavoriteCurrency());
   }, [dispatch]);

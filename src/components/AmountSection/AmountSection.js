@@ -61,7 +61,7 @@ function AmountSection() {
           className="input-currency-select-form"
           disabled={!(currenciesList.length > 1)}
         >
-          <InputLabel htmlFor="input-currency-select-field">
+          <InputLabel id="input-currency-select-field-label" htmlFor="input-currency-select-field">
             Currency
           </InputLabel>
           <Select
