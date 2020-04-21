@@ -21,10 +21,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "eslint . && GENERATE_SOURCEMAP=false react-scripts build",
-    "lint": "eslint .",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint .",
     "start:heroku": "npm run build && node server.js"
   },
   "eslintConfig": {
