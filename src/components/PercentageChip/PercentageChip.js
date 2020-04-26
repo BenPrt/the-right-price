@@ -118,6 +118,7 @@ function PercentageChip(props) {
           >
             <input
               className="percentage-chip-input"
+              inputMode="decimal"
               value={taxInputValue}
               onChange={handleUpdateChipAddingValue.bind(this)}
               onBlur={handleChipAdding.bind(this)}
